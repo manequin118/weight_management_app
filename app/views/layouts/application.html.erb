@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>体重管理アプリ</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+      <!-- 全ページにナビバーを追加 -->
+    <%= render 'shared/header' %>
+    <!-- ログイン関連ページ以外にフラッシュ表示部分を追加 -->
+    <% if controller_name == 'graphs' %>
+      <%= render 'shared/flash_messages' %>
+    <% end %>
+
+      <div class="graph-container">
+    <%= yield %>
+    </div>
+  </body>
+</html>
